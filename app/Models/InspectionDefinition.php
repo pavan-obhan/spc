@@ -13,4 +13,14 @@ class InspectionDefinition extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    public function inspection_definition_group()
+    {
+        return $this->hasMany(InspectionDefinitionGroup::class);
+    }
+
+    public function inspection_definition_item()
+    {
+        return $this->hasMany(InspectionDefinitionItem::class);
+    }
 }
