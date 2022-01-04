@@ -15,7 +15,8 @@ class CreateInspectionDefinitionGroupsTable extends Migration
     {
         Schema::create('inspection_definition_groups', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('inspection_definition_id')->constrained();
+            $table->unsignedBigInteger('inspection_definition');
+            $table->foreign('inspection_definition')->references('id')->on('inspection_definitions');
             $table->string('name');
             $table->timestamps();
         });
