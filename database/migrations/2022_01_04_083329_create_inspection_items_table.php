@@ -15,10 +15,8 @@ class CreateInspectionItemsTable extends Migration
     {
         Schema::create('inspection_items', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('inspection');
-            $table->foreign('inspection')->references('id')->on('inspections');
-            $table->unsignedBigInteger('inspection_definition_item');
-            $table->foreign('inspection_definition_item')->references('id')->on('inspection_definition_items');
+            $table->foreignId('inspection_id')->constrained();
+            $table->foreignId('inspection_definition_item')->constrained();
             $table->decimal('value');
             $table->timestamps();
         });
