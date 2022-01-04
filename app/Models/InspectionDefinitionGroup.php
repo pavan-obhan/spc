@@ -9,8 +9,9 @@ class InspectionDefinitionGroup extends Model
 {
     use HasFactory;
 
-    public function inspectiondefination()
+    public function inspectionDefination()
     {
-        return $this->belongsTo(InspectionDefinition::class);
+        return $this->belongsTo(InspectionDefinition::class, 'inspection_definition_id');
     }
+
 }

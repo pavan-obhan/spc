@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Inspection extends Model
 {
     use HasFactory;
+
+    public function inspectionDefinition()
+    {
+        return $this->belongsTo(InspectionDefinition::class,'inspection_definition_id');
+    }
 }
