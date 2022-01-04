@@ -16,7 +16,7 @@ class CreateInspectionItemsTable extends Migration
         Schema::create('inspection_items', function (Blueprint $table) {
             $table->id();
             $table->foreignId('inspection_id')->constrained();
-            $table->foreignId('inspection_definition_item')->constrained();
+            $table->foreignId('inspection_definition_item_id')->constrained();
             $table->decimal('value');
             $table->timestamps();
         });
