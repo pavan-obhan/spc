@@ -21,6 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('inspection_definition',[InspectionDefinitionController::class,'show']);
-Route::put('inspection_item/create',[InspectionDefinitionController::class,'store']);
-Route::put('inspection_item/update',[InspectionDefinitionController::class,'store']);
+//Route::put('inspection_item/create',[InspectionDefinitionController::class,'store']);
+//Route::put('inspection_item/update',[InspectionDefinitionController::class,'store']);
 //Route::get('inspection',[InspectionController::class,'show']);
