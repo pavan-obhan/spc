@@ -16,7 +16,8 @@ class CreateInspectionDefinitionsTable extends Migration
         Schema::create('inspection_definitions', function (Blueprint $table) {
             $table->id();
             $table->string('description');
-            $table->foreignId('product_id')->constrained();
+            $table->unsignedBigInteger('product');
+            $table->foreign('product')->references('id')->on('products');
             $table->timestamps();
         });
     }
