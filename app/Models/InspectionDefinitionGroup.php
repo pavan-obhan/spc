@@ -8,5 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class InspectionDefinitionGroup extends Model
 {
     use HasFactory;
-    
+
+    public function inspectiondefination()
+    {
+        return $this->belongsTo(InspectionDefinition::class);
+    }
 }
