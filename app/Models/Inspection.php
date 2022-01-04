@@ -13,4 +13,9 @@ class Inspection extends Model
     {
         return $this->belongsTo(InspectionDefinition::class,'inspection_definition_id');
     }
+
+    public function inspection_item()
+    {
+        return $this->hasMany(InspectionItem::class);
+    }
 }
