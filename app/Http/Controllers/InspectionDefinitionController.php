@@ -3,12 +3,21 @@
 namespace App\Http\Controllers;
 //use App\Models\InspectionDefinition;
 use App\Models\InspectionDefinition;
-use App\Models\InspectionDefinitionItem;
 
 class InspectionDefinitionController extends Controller
 {
-    public function show()
+    public function index()
     {
-        return InspectionDefinition::with('inspection_definition_item','inspection_definition_group')->get();
+        return InspectionDefinition::with('inspection_definition_item', 'inspection_definition_group')->get();
+    }
+
+    public function update()
+    {
+
+    }
+
+    public function create()
+    {
+
     }
 }
