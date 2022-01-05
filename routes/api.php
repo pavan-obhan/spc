@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\InspectionController;
 use App\Http\Controllers\InspectionDefinitionController;
+use App\Http\Controllers\InspectionItemController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +21,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('inspection_definition',[InspectionDefinitionController::class,'show']);
-//Route::put('inspection_item/create',[InspectionDefinitionController::class,'store']);
-//Route::put('inspection_item/update',[InspectionDefinitionController::class,'store']);
-Route::get('inspection',[InspectionController::class,'show']);
+Route::get('inspection_definition',[InspectionDefinitionController::class,'index']);
+Route::get('inspection',[InspectionController::class,'index']);
+
+Route::post('inspection_item/create',[InspectionItemController::class,'store'])->middleware('auth.basic.once');
+Route::put('inspection_item/update',[InspectionItemController::class,'update'])->middleware('auth.basic.once');
+
