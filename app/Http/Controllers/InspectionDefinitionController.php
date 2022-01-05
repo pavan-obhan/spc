@@ -11,13 +11,4 @@ class InspectionDefinitionController extends Controller
         return InspectionDefinition::with('inspection_definition_item', 'inspection_definition_group')->get();
     }
 
-    public function update()
-    {
-
-    }
-
-    public function create()
-    {
-
-    }
 }
