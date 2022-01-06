@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class InspectionDefinitionItem extends Model
+class item extends Model
 {
     use HasFactory;
 
@@ -17,6 +17,11 @@ class InspectionDefinitionItem extends Model
     public function inspectionDefinitionGroup()
     {
         return $this->belongsTo(InspectionDefinitionGroup::class, 'inspection_definition_group_id');
+    }
+
+    public function measuring_tool()
+    {
+        return $this->belongsTo(MeasuringTool::class);
     }
 
 }
