@@ -23,4 +23,14 @@ class InspectionDefinition extends Model
     {
         return $this->hasMany(InspectionDefinitionItem::class);
     }
+
+    public function inspection()
+    {
+        return $this->hasMany(Inspection::class);
+    }
+
+    public function inspection_item()
+    {
+        return $this->hasMany(InspectionItem::class);
+    }
 }

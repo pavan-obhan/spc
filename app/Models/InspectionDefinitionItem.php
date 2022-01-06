@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class item extends Model
+class InspectionDefinitionItem extends Model
 {
     use HasFactory;
 
@@ -22,6 +22,11 @@ class item extends Model
     public function measuring_tool()
     {
         return $this->belongsTo(MeasuringTool::class);
+    }
+
+    public function inspection_item()
+    {
+     return $this->hasMany(InspectionItem::class);
     }
 
 }

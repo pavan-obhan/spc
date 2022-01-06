@@ -18,4 +18,7 @@ class InspectionItem extends Model
     {
         return $this->belongsTo(InspectionDefinition::class, 'inspection_definition_item_id');
     }
+
+
+
 }

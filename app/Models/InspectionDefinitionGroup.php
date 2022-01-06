@@ -14,4 +14,8 @@ class InspectionDefinitionGroup extends Model
         return $this->belongsTo(InspectionDefinition::class, 'inspection_definition_id');
     }
 
+    public function inspection_definition_item()
+    {
+        return $this->hasMany(InspectionDefinitionItem::class);
+    }
 }
