@@ -9,6 +9,7 @@ use App\Models\InspectionDefinitionItem;
 use App\Models\InspectionItem;
 use App\Models\MeasuringTool;
 use App\Models\Product;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -78,6 +79,7 @@ class DatabaseSeeder extends Seeder
         $item->spc_enabled = 1;
         $item->upper_specification_limit = 10;
         $item->lower_specification_limit = 9;
+        $item->created_at=Carbon::now()->subMonth(rand(1,12));
         $item->save();
 
         $item = new InspectionDefinitionItem();
@@ -90,6 +92,7 @@ class DatabaseSeeder extends Seeder
         $item->spc_enabled = 0;
         $item->upper_specification_limit = 5;
         $item->lower_specification_limit = 4;
+        $item->created_at=Carbon::now()->subMonth(rand(1,12));
         $item->save();
 
         $item = new InspectionDefinitionItem();
@@ -102,6 +105,7 @@ class DatabaseSeeder extends Seeder
         $item->spc_enabled = 1;
         $item->upper_specification_limit = 100;
         $item->lower_specification_limit = 99;
+        $item->created_at=Carbon::now()->subMonth(rand(1,12));
         $item->save();
 
         $item = new InspectionDefinitionItem();
@@ -114,6 +118,7 @@ class DatabaseSeeder extends Seeder
         $item->spc_enabled = 1;
         $item->upper_specification_limit = 10;
         $item->lower_specification_limit = 9;
+        $item->created_at=Carbon::now()->subMonth(rand(1,12));
         $item->save();
 
         $item = new InspectionDefinitionItem();
@@ -126,6 +131,7 @@ class DatabaseSeeder extends Seeder
         $item->spc_enabled = 1;
         $item->upper_specification_limit = 10;
         $item->lower_specification_limit = 9;
+        $item->created_at=Carbon::now()->subMonth(rand(1,12));
         $item->save();
 
         $item = new InspectionDefinitionItem();
@@ -138,6 +144,7 @@ class DatabaseSeeder extends Seeder
         $item->spc_enabled = 1;
         $item->upper_specification_limit = 10;
         $item->lower_specification_limit = 9;
+        $item->created_at=Carbon::now()->subMonth(rand(1,12));
         $item->save();
 
         $item = new InspectionDefinitionItem();
@@ -150,6 +157,7 @@ class DatabaseSeeder extends Seeder
         $item->spc_enabled = 1;
         $item->upper_specification_limit = 10;
         $item->lower_specification_limit = 9;
+        $item->created_at=Carbon::now()->subMonth(rand(1,12));
         $item->save();
 
         $item = new InspectionDefinitionItem();
@@ -162,6 +170,7 @@ class DatabaseSeeder extends Seeder
         $item->spc_enabled = 1;
         $item->upper_specification_limit = 10;
         $item->lower_specification_limit = 9;
+        $item->created_at=Carbon::now()->subMonth(rand(1,12));
         $item->save();
 
         $item = new InspectionDefinitionItem();
@@ -174,6 +183,7 @@ class DatabaseSeeder extends Seeder
         $item->spc_enabled = 1;
         $item->upper_specification_limit = 10;
         $item->lower_specification_limit = 9;
+        $item->created_at=Carbon::now()->subMonth(rand(1,12));
         $item->save();
 
         $item = new InspectionDefinitionItem();
@@ -186,6 +196,7 @@ class DatabaseSeeder extends Seeder
         $item->spc_enabled = 1;
         $item->upper_specification_limit = 10;
         $item->lower_specification_limit = 9;
+        $item->created_at=Carbon::now()->subMonth(rand(1,12));
         $item->save();
 
         $item = new InspectionDefinitionItem();
@@ -198,6 +209,7 @@ class DatabaseSeeder extends Seeder
         $item->spc_enabled = 1;
         $item->upper_specification_limit = 10;
         $item->lower_specification_limit = 9;
+        $item->created_at=Carbon::now()->subMonth(rand(1,12));
         $item->save();
 
         $item = new InspectionDefinitionItem();
@@ -210,6 +222,7 @@ class DatabaseSeeder extends Seeder
         $item->spc_enabled = 1;
         $item->upper_specification_limit = 10;
         $item->lower_specification_limit = 9;
+        $item->created_at=Carbon::now()->subMonth(rand(1,12));
         $item->save();
 
         $item = new InspectionDefinitionItem();
@@ -222,7 +235,7 @@ class DatabaseSeeder extends Seeder
         $item->spc_enabled = 1;
         $item->upper_specification_limit = 10;
         $item->lower_specification_limit = 9;
-
+        $item->created_at=Carbon::now()->subMonth(rand(1,12));
         $item->save();
 
         $item = new InspectionDefinitionItem();
@@ -235,6 +248,7 @@ class DatabaseSeeder extends Seeder
         $item->spc_enabled = 1;
         $item->upper_specification_limit = 10;
         $item->lower_specification_limit = 9;
+        $item->created_at=Carbon::now()->subMonth(rand(1,12));
         $item->save();
 
 
@@ -248,6 +262,7 @@ class DatabaseSeeder extends Seeder
         $item->spc_enabled = 1;
         $item->upper_specification_limit = 10;
         $item->lower_specification_limit = 9;
+        $item->created_at=Carbon::now()->subMonth(rand(1,12));
         $item->save();
 
 
@@ -261,6 +276,7 @@ class DatabaseSeeder extends Seeder
         $item->spc_enabled = 1;
         $item->upper_specification_limit = 10;
         $item->lower_specification_limit = 9;
+        $item->created_at=Carbon::now()->subMonth(rand(1,12));
         $item->save();
 
 
@@ -285,6 +301,7 @@ class DatabaseSeeder extends Seeder
         $inspection = new Inspection();
         $inspection->inspection_definition_id = 2;
         $inspection->inspection_date_time = date('Y-m-d H:i:s');
+        $inspection->fixture_number = 11.99;
         $inspection->fixture_number = 11.99;
         $inspection->save();
 
