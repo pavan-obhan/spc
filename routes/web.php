@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InspectionDefinitionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,5 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('inspection/export',[\App\Http\Controllers\InspectionDefinitionController::class,'export']);
+Route::get('inspection/export',[InspectionDefinitionController::class,'export']);
 
