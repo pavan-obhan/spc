@@ -2,11 +2,14 @@
 
 namespace App\Imports;
 
+use App\Models\Inspection;
 use App\Models\InspectionDefinition;
 use App\Models\InspectionDefinitionGroup;
 use App\Models\InspectionDefinitionItem;
+use App\Models\InspectionItem;
 use App\Models\MeasuringTool;
 use App\Models\Product;
+use DateTime;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\SkipsErrors;
@@ -15,6 +18,7 @@ use Maatwebsite\Excel\Concerns\SkipsOnError;
 use Maatwebsite\Excel\Concerns\SkipsOnFailure;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use PhpOffice\PhpSpreadsheet\Calculation\DateTimeExcel\Date;
 
 
 class InspectionDefinitionItemsImport implements ToCollection, WithHeadingRow, SkipsOnFailure, SkipsOnError
@@ -53,7 +57,7 @@ class InspectionDefinitionItemsImport implements ToCollection, WithHeadingRow, S
 
             $item->reference_number = $row['reference_number'];
 
-            if (!MeasuringTool::where('name',$row['measuring_tool'])->first()){
+            if (!MeasuringTool::where('name', $row['measuring_tool'])->first()) {
                 $tool = new MeasuringTool();
                 $tool->name = $row['measuring_tool'];
                 $tool->type = $row['value'];
@@ -64,12 +68,30 @@ class InspectionDefinitionItemsImport implements ToCollection, WithHeadingRow, S
 
             $item->serial_number = $row['serial_number'];
             $item->specification = $row['specification'];
-            $item->created_at = $row['date'];
+            $item->created_at = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['date']);
             $item->lower_specification_limit = $row['lower_specification_limit'];
             $item->upper_specification_limit = $row['upper_specification_limit'];
             $item->spc_enabled = $row['spc_enabled'];
-            $item->inspection_item->value = $row['value'];
+
+            $inspection = new Inspection();
+            $inspection->inspection_definition_id =
+                InspectionDefinition::where('description', $row['description'])->first()->id;
+
+            $inspection->inspection_date_time = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['date']);
+            $inspection->fixture_number = $row['fixture_number'];
+            $inspection->save();
+
             $item->save();
+
+            $inspectionItem = new InspectionItem();
+            $inspectionItem->value = $row['value'];
+            $inspectionItem->inspection_id
+                = Inspection::where('fixture_number',$row['fixture_number'])->first()->id;
+            $inspectionItem->inspection_definition_item_id
+                = InspectionDefinitionItem::where('reference_number', $row['reference_number'])
+                ->first()->id;
+            $inspectionItem->value = $row['value'];
+            $inspectionItem->save();
         }
     }
 }
