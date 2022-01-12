@@ -19,4 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('inspection/export',[InspectionDefinitionController::class,'export']);
+Route::post('inspection/import',[InspectionDefinitionController::class,'store']);
 
